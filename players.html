@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игроки | CyberStats</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">CyberStats</div>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tournaments.html">Турниры</a></li>
+            <li><a href="teams.html">Команды</a></li>
+            <li><a href="players.html">Игроки</a></li>
+            <li><a href="about.html">О проекте</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <section class="players">
+        <h1>Профессиональные игроки</h1>
+        <div class="filters">
+            <label>
+                <select id="game-filter">
+                    <option value="cs2">CS2</option>
+                    <option value="dota-2">Dota 2</option>
+                    <option value="league-of-legends">League of Legends</option>
+                    <option value="valorant">Valorant</option>
+                </select>
+            </label>
+            <label>
+                <select id="position-filter">
+                    <option value="">Все позиции</option>
+                    <option value="carry">Керри (Dota 2)</option>
+                    <option value="mid">Мид (LoL/Dota 2)</option>
+                    <option value="rifler">Рифлер (CS2)</option>
+                    <option value="sentinel">Сентинел (Valorant)</option>
+                </select>
+            </label>
+            <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Поиск по имени игрока..."
+            >
+        </div>
+
+        <div id="loader" class="loader">
+            <p>Загружаем данные...</p>
+        </div>
+
+        <div id="players-list" class="list">
+            <p>Загружаем игроков...</p>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 CyberStats. Данные обновляются ежедневно.</p>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/players.js"></script>
+</body>
+</html>

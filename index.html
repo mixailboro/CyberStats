@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Киберспортивная статистика</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">CyberStats</div>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tournaments.html">Турниры</a></li>
+            <li><a href="teams.html">Команды</a></li>
+            <li><a href="players.html">Игроки</a></li>
+            <li><a href="about.html">О проекте</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <section class="hero">
+        <h1>Киберспортивная аналитика</h1>
+        <p>Статистика и прогнозы для CS2, Dota 2, LoL, Valorant</p>
+    </section>
+
+    <section class="games"></section>
+
+    <section class="predictions">
+        <h2>Прогнозы на матчи</h2>
+        <div id="predictions-list"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 CyberStats. Все данные из официальных API.</p>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/predict.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

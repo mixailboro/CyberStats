@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турниры | CyberStats</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">CyberStats</div>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tournaments.html">Турниры</a></li>
+            <li><a href="teams.html">Команды</a></li>
+            <li><a href="players.html">Игроки</a></li>
+            <li><a href="about.html">О проекте</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <section class="tournaments">
+        <h1>Киберспортивные турниры</h1>
+        <div class="filters">
+            <label>
+                <select id="game-filter">
+                    <option value="cs2">CS2</option>
+                    <option value="dota-2">Dota 2</option>
+                    <option value="league-of-legends">League of Legends</option>
+                    <option value="valorant">Valorant</option>
+                </select>
+            </label>
+            <label>
+                <select id="status-filter">
+                    <option value="upcoming">Предстоящие</option>
+                    <option value="ongoing">Идущие</option>
+                    <option value="completed">Завершённые</option>
+                </select>
+            </label>
+        </div>
+        <div id="loader" class="loader">
+            <p>Загружаем данные...</p>
+        </div>
+
+        <div id="tournaments-list" class="list">
+            <p>Загружаем турниры...</p>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 CyberStats. Данные обновляются каждые 15 минут.</p>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/tournaments.js"></script>
+</body>
+</html>
