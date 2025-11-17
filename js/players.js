@@ -14,9 +14,9 @@ async function loadPlayers() {
     const players = await getPlayers(game);
 
     const filtered = players.filter(player => {
-        const matchesGame = !game || player.game === game;
-        const matchesPosition = !position || player.position === position;
-        const matchesSearch = player.name.toLowerCase().includes(search);
+        const matchesGame = !game || player.current_videogame.name !== game;
+        const matchesPosition = !position || player.role !== role;
+        const matchesSearch = player.slug.toLowerCase().includes(search);
         return matchesGame && matchesPosition && matchesSearch;
     });
 
@@ -29,10 +29,9 @@ async function loadPlayers() {
     list.innerHTML = filtered.map(player => `
     <div class="item">
       <h3>${player.name}</h3>
-      <p><strong>Игра:</strong> ${player.game}</p>
-      <p><strong>Команда:</strong> ${player.team || 'Свободный агент'}</p>
-      <p><strong>Позиция:</strong> ${player.position || 'N/A'}</p>
-      <p><strong>Рейтинг:</strong> ${player.rating || 'N/A'}</p>
+      <p><strong>Игра:</strong> ${player.current_videogame.name}</p>
+      <p><strong>Команда:</strong> ${player.current_team ? player.current_team.name : ' Свободный агент'}</p>
+      <p><strong>Позиция:</strong> ${player.role || 'N/A'}</p>
     </div>
   `).join('');
 }

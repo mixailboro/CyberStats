@@ -28,6 +28,7 @@ async function loadTournaments() {
         return;
     }
 
+    // Получаем текущие значения фильтров
     const game = gameFilter.value;
     const status = statusFilter.value;
 
@@ -45,18 +46,18 @@ async function loadTournaments() {
         // Безопасная генерация HTML (экранирование)
         const itemsHTML = tournaments.map(tourn => {
             const escapedName = escapeHtml(tourn.name || 'N/A');
-            const escapedGame = escapeHtml(tourn.game || 'N/A');
-            const escapedStart = escapeHtml(tourn.start_date || 'N/A');
-            const escapedEnd = escapeHtml(tourn.end_date || 'N/A');
-            const escapedStatus = escapeHtml(tourn.status || 'N/A');
-            const prizePool = tourn.prize_pool ? `$${tourn.prize_pool}` : 'N/A';
+            const escapedGame = escapeHtml(tourn.videogame.name || 'N/A');
+            const escapedStart = escapeHtml(tourn.begin_at || 'N/A');
+            const escapedEnd = escapeHtml(tourn.end_at || 'N/A');
+            const escapedCount = tourn.matches.length;
+            const prizePool = tourn.prizepool ? `$${tourn.prizepool}` : 'N/A';
 
             return `
                 <div class="item">
                     <h3>${escapedName}</h3>
                     <p><strong>Игра:</strong> ${escapedGame}</p>
                     <p><strong>Даты:</strong> ${escapedStart} – ${escapedEnd}</p>
-                    <p><strong>Статус:</strong> ${escapedStatus}</p>
+                    <p><strong>Количество игр:</strong> ${escapedCount}</p>
                     <p><strong>Призовой фонд:</strong> ${escapeHtml(prizePool)}</p>
                 </div>
             `;

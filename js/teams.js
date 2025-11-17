@@ -50,7 +50,7 @@ async function loadTeams() {
             teamsCache.set(game, teams); // Сохраняем в кэш
         }
 
-        const filtered = teams.filter(team =>
+        const filtered = teams.filter(team =>     // сука тут где-то!!!
             team.name.toLowerCase().includes(search)
         );
 
@@ -98,16 +98,16 @@ function escapeHtml(unsafe) {
 }
 
 // Заглушка для getTeams (замените на реальный API‑запрос)
-async function getTeams(game) {
-    // Пример имитации API
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve([
-                { name: 'Team Spirit', game: 'Dota 2', country: 'Россия', rating: 2800 },
-                { name: 'G2 Esports', game: 'CS2', country: 'Европа', rating: 2650 },
-                { name: 'T1', game: 'League of Legends', country: 'Южная Корея', rating: 2700 }
-            ]);
-        }, 800);
-    });
-}
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        authorization: 'Bearer n0hTe2IWuZZmI7J07wuhV4PnwLJpa43dAIvajLE5itR8DPY1lq0'
+    }
+};
+
+fetch('https://api.pandascore.co/teams?filter[videogame_id][0]=1&sort=acronym&page=1&per_page=50', options)
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
 

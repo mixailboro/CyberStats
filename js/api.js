@@ -10,7 +10,7 @@ async function fetchPandaData(endpoint, params = {}) {
         Object.keys(params).forEach(key => {
             url.searchParams.append(key, params[key]);
         });
-
+        console.log('123 ' + url.toString());
         const response = await fetch(url.toString(), {
             method: 'GET',
             headers: {
@@ -35,11 +35,10 @@ async function fetchPandaData(endpoint, params = {}) {
 // Получение турниров (с фильтрацией по игре и статусу)
 async function getTournaments(game, status = 'upcoming') {
     const params = {
-        'filter"game"': game,
-        'filter"status"': status,
-        'page"size"': 20
+        'page[size]': 20  // Если размер страницы передаётся в таком формате
     };
-    return fetchPandaData('tournaments', params);
+
+    return fetchPandaData(game+'/tournaments/'+status, params);
 }
 
 // Получение команд (по игре)
@@ -54,10 +53,9 @@ async function getTeams(game) {
 // Получение игроков (по игре)
 async function getPlayers(game) {
     const params = {
-        'filter"game"': game,
         'page"size"': 20
     };
-    return fetchPandaData('players', params);
+    return fetchPandaData(game+'/players?', params);
 }
 
 // Пример использования
